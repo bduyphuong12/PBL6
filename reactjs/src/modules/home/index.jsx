@@ -8,7 +8,7 @@ const HomeScreen = () => {
     test('thu cu nha');
   });
   console.log('check str', check);
-  return <div>Home page</div>;
+  return <div>Home page ccasdasdasd</div>;
 };
 
 export default HomeScreen;
