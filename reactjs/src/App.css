@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body {
+  background: rgba(221, 221, 221, 0.822);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -26,6 +28,14 @@
 
 .App-link {
   color: #61dafb;
+}
+.App-footer {
+  margin-top: 15px;
+  border-top: 1px solid #000000;
+  font-size: 62.5%;
+  line-height: 1.6em;
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
