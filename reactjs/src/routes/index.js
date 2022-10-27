@@ -1,16 +1,8 @@
-import React from 'react'
-import {
-    Routes,
-    Route,} from "react-router-dom";
-
-import { HomeScreen} from '../modules';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 function AppRoutes() {
-  return (
-    <Routes>
-      <Route index element={<HomeScreen/>} />
-  </Routes>
-  )
+  return <div></div>;
 }
 
-export default AppRoutes
+export default AppRoutes;
