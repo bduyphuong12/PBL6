@@ -4,6 +4,7 @@ import faceio from '../../../../assets/logo/zyro-image1.png';
 import { useState } from 'react';
 import isEmpty from 'validator/lib/isEmpty';
 import { Link } from 'react-router-dom';
+
 // import { loginUser } from "../../../../Redux/apiReques";
 import { useDispatch } from 'react-redux';
 
@@ -81,10 +82,8 @@ const Login_form = () => {
         </button>
 
         <div className='register'>
-          <Link to={'/register'}>
-            <label htmlFor='register'>Bạn chưa có tài khoản?</label>
-            <button id='register'>ĐĂNG KÝ</button>
-          </Link>
+          <label htmlFor='register'>Bạn chưa có tài khoản?</label>
+          <Link to={'/register'}>Đăng ký</Link>
         </div>
       </form>
     </div>

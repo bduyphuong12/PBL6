@@ -54,7 +54,8 @@
 
   a {
     text-decoration: none;
-    color: black;
+    color: blue;
+    font-size: 1rem;
   }
   button {
     cursor: pointer;
@@ -64,7 +65,7 @@
     height: 40px;
     font-size: 18px;
     border: 0;
-    background-color: #fbff00;
+    background-color: #486dd3;
     &:hover {
       background-color: #ffcd77;
     }

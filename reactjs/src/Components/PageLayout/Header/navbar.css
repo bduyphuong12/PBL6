@@ -1,35 +1,26 @@
 .navbar-light {
   /* background: #d2691e; */
-
+  min-width: 800px;
   height: 70px;
   font-size: 0.9rem;
 }
 .navbar-logo {
-  margin-left: -80px;
   text-decoration: none;
   width: 250px;
   height: 40%;
 }
 
 .nav-left-side {
-  float: left;
-
   align-items: center;
-  margin-left: 10%;
-}
-.nav-right-side {
-  display: inline-flex;
-  margin-top: 20px;
-  margin-left: 900px;
-  align-items: center;
-  justify-content: center;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar-btn {
   outline: none !important;
   position: relative;
-  background: rgba(221, 221, 221, 0.822);
-
+  background: white;
   color: black;
   height: 32px;
   width: 63px;
@@ -40,7 +31,6 @@
 }
 .avt {
   width: 45px;
-  margin-top: 1px;
   border-radius: 50%;
 }
 .menu {
@@ -72,7 +62,7 @@
   margin-left: 50px;
 }
 .navbar-btn:hover {
-  background: rgba(221, 221, 221, 0.822);
+  background: white;
 
   cursor: pointer;
 }

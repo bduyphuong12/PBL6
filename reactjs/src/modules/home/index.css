@@ -122,3 +122,6 @@
   border-top: 0.5px solid #ebebeb;
   border-bottom: 0.5px solid #ebebeb;
 }
+.canvas-box {
+  height: 228px;
+}

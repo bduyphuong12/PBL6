@@ -11,6 +11,9 @@ function NavBar() {
         <Link to={'/'}>
           <img className='navbar-logo' src={logo} alt='logo' />
         </Link>
+        <Link to={'/login'}>
+          <img src='https://i.ibb.co/PCjW83Y/avt.png' className='avt' />
+        </Link>
       </div>
 
       <div className='nav-right-side'>
@@ -27,12 +30,6 @@ function NavBar() {
             </div>
           </div>
         </> */}{' '}
-        <Link to={'/login'}>
-          <img src='https://i.ibb.co/PCjW83Y/avt.png' className='avt' />
-          <button className='navbar-btn' id='btnSignUp'>
-            LOGIN
-          </button>
-        </Link>
       </div>
     </nav>
     // <>
