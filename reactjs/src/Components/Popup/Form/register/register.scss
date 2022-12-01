@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
   margin-bottom: 30px;
 }
 .register_form {
@@ -60,15 +59,13 @@
   button {
     cursor: pointer;
     border-radius: 99px;
-
+    color: white;
     width: 150px;
     height: 40px;
     font-size: 18px;
     border: 0;
-    background-color: #486dd3;
-    &:hover {
-      background-color: #ffcd77;
-    }
+    background: #ff00cc;
+    
   }
   .register {
     margin-top: 10px;
@@ -79,10 +76,8 @@
 
       font-size: 14px;
       border: 0;
-      background-color: #fbff00;
-      &:hover {
-        background-color: #ffcd77;
-      }
+      background: #ff00cc;
+      
     }
     label {
       font-size: 15px;

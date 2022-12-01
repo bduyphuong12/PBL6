@@ -1,9 +1,7 @@
 .App {
   text-align: center;
 }
-body {
-  background: rgba(255, 255, 255, 0.822);
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -30,7 +28,6 @@ body {
   color: #61dafb;
 }
 .App-footer {
-  margin-top: 500px;
   border-top: 1px solid #000000;
   font-size: 62.5%;
   line-height: 1.6em;

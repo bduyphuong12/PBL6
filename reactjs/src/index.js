@@ -1,4 +1,4 @@
-import 'antd/dist/antd.min.css';
+// import 'antd/dist/antd.min.css';
 
 import { createRoot } from 'react-dom/client';
 import App from './App';

@@ -4,7 +4,7 @@ import faceio from '../../../../assets/logo/zyro-image1.png';
 import { useState } from 'react';
 import isEmpty from 'validator/lib/isEmpty';
 import { Link } from 'react-router-dom';
-
+import triangle from '../../../../assets/logo/obj_triangle.png';
 // import { loginUser } from "../../../../Redux/apiReques";
 import { useDispatch } from 'react-redux';
 
@@ -46,7 +46,10 @@ const Login_form = () => {
     };
   };
   return (
-    <div className='login'>
+    <div>
+      <div className='jumbotron d-flex align-items-center'>
+        <div className='container text-center'>
+        <div className='login'>
       <form action='' className='login_form' onSubmit={onSubmitForm}>
         <h2>ĐĂNG NHẬP</h2>
         <p>{msg}</p>
@@ -77,16 +80,35 @@ const Login_form = () => {
         <button className='btn-login' onClick={onSubmitLogin}>
           ĐĂNG NHẬP
         </button>
-        <button className='faceio'>
-          <img src={faceio} alt='' className='imgio' />
-        </button>
-
         <div className='register'>
           <label htmlFor='register'>Bạn chưa có tài khoản?</label>
           <Link to={'/register'}>Đăng ký</Link>
         </div>
       </form>
     </div>
+        </div>
+        <div className='rectangle-1'></div>
+        <div className='rectangle-2'></div>
+        <div className='rectangle-transparent-1'></div>
+        <div className='rectangle-transparent-2'></div>
+        <div className='circle-1'></div>
+        <div className='circle-2'></div>
+        <div className='circle-3'></div>
+        <div className='triangle triangle-1'>
+          <img src={triangle} alt='' />
+        </div>
+        <div className='triangle triangle-2'>
+          <img src={triangle} alt='' />
+        </div>
+        <div className='triangle triangle-3'>
+          <img src={triangle} alt='' />
+        </div>
+        <div className='triangle triangle-4'>
+          <img src={triangle} alt='' />
+        </div>
+      </div>
+    </div>
+   
   );
 };
 export default Login_form;

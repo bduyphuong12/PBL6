@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './register.scss';
 import { Link } from 'react-router-dom';
+import triangle from '../../../../assets/logo/obj_triangle.png';
 // import { registerUser } from "../../../../Redux/apiReques";
 import isEmpty from 'validator/lib/isEmpty';
 import isEmail from 'validator/lib/isEmail';
@@ -73,7 +74,11 @@ const Register_form = () => {
   };
 
   return (
-    <div className='Fregister'>
+    
+    <div>
+      <div className='jumbotron d-flex align-items-center'>
+        <div className='container text-center'>
+        <div className='Fregister'>
       <form action='' className='register_form' onSubmit={onSubmitForm}>
         <h2>ĐĂNG KÝ</h2>
         <p>{msg}</p>
@@ -146,6 +151,28 @@ const Register_form = () => {
           </Link>
         </div>
       </form>
+    </div>
+        </div>
+        <div className='rectangle-1'></div>
+        <div className='rectangle-2'></div>
+        <div className='rectangle-transparent-1'></div>
+        <div className='rectangle-transparent-2'></div>
+        <div className='circle-1'></div>
+        <div className='circle-2'></div>
+        <div className='circle-3'></div>
+        <div className='triangle triangle-1'>
+          <img src={triangle} alt='' />
+        </div>
+        <div className='triangle triangle-2'>
+          <img src={triangle} alt='' />
+        </div>
+        <div className='triangle triangle-3'>
+          <img src={triangle} alt='' />
+        </div>
+        <div className='triangle triangle-4'>
+          <img src={triangle} alt='' />
+        </div>
+      </div>
     </div>
   );
 };
