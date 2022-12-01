@@ -8,6 +8,7 @@ import LoginIO from './Components/Popup/LoginIO/loginio';
 import Register from './Components/Popup/Form/register/Register_form';
 import HomePage from './modules/home/index';
 import About from './modules/about/about.jsx'
+import Detail from './modules/detail/detail';
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
+        <Route path='/detail' element={<Detail />} />
       </Routes>
       {/* <div className='App-footer '>
         <AboutUs />
