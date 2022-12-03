@@ -80,6 +80,10 @@
   flex-direction: row;
   margin-left: 40px;
 }
+
+.draw-writing{
+  height: 300px;
+}
 .draw-kanji-result {
   height: 42px;
   overflow: auto;
