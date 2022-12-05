@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './index.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../../assets/bootstrap/bootstrap.min.css';
 import CanvasDraw from 'react-canvas-draw';
 import logo2 from '../../assets/logo/logo2.png';
@@ -9,20 +9,17 @@ import searchI from '../../assets/logo/search.png';
 import triangle from '../../assets/logo/obj_triangle.png';
 function HomeScreen() {
   const canvasRef = useRef(null);
-  const [canvas, setBrush] = useState('#FCA5A5');
-  const [brush, setThick] = useState(50);
+  const canvas = '#FCA5A5';
+  const brush = 4;
 
   const [isShown, setIsShown] = useState(false);
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
-  return (
-    // <div className='homepage'>
-    //   <div className='logo'>
-    //     <img src={logo2} alt='logo' className='logo2' />
-    //   </div>
+  const [search, setSearch] = useState('');
 
+  return (
     <div>
       <div className='jumbotron d-flex align-items-center'>
         <div className='container text-center'>
@@ -33,87 +30,63 @@ function HomeScreen() {
                 <img src={pencil} alt='' className='input-icon' />
               </div>
               <div className='search-wrapper'>
-                <input type='text' placeholder='Tra hán tự: hán, 漢, かん' id='inputWord' />
-                <Link to={'/detail/'}>
+                <input
+                  type='text'
+                  placeholder='Tra hán tự: hán, 漢, かん'
+                  id='inputWord'
+                  value={search}
+                  onChange={(event) => {
+                    setSearch(event.target.value);
+                  }}
+                />
+                <NavLink to={'/detail/'}>
                   <img src={searchI} alt='' className='searchI' />
-                </Link>
+                </NavLink>
               </div>
               <div className='draw-writing'>
-              {isShown && (
-                <div className='hand-writing-area-wrapper'>
-                  <div className='draw-kanji-top-bar'>
-                    <div className='draw-kanji-result'>result</div>
-                    <div className='writing-button-area'>
-                      <div>
-                        <button
-                          onClick={() => {
-                            canvasRef.current.undo();
-                          }}
-                        >
-                          <i class='fa fa-repeat icon'></i>
-                        </button>
-                        <button
-                          onClick={() => {
-                            canvasRef.current.clear();
-                          }}
-                        >
-                          <i class='fa fa-eraser icon'></i>
-                        </button>
-                        <button
-                          onClick={() => {
-                            handleClick(false);
-                          }}
-                        >
-                          <i class='fa fa-window-close icon'></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div className='hand-writing-area margin-btm'>
-                      <div className='canvas-draw-kanji'>
-                          <CanvasDraw ref={canvasRef} brushColor={canvas} brushRadius={brush} hideGrid={true} />
+                {isShown && (
+                  <div className='hand-writing-area-wrapper'>
+                    <div className='draw-kanji-top-bar'>
+                      <div className='draw-kanji-result'>result</div>
+                      <div className='writing-button-area'>
+                        <div>
                           <button
                             onClick={() => {
                               canvasRef.current.undo();
                             }}
                           >
-                            UNDO
+                            <i class='fa fa-repeat icon'></i>
                           </button>
                           <button
                             onClick={() => {
                               canvasRef.current.clear();
                             }}
                           >
-                            CLEAR
+                            <i class='fa fa-eraser icon'></i>
                           </button>
-                          <br />
-                          <label>Colour picker</label>
-                          <input
-                            style={{ background: { canvas } }}
-                            type='color'
-                            value={canvas}
-                            onChange={(event) => {
-                              console.log(event.target.value);
-                              setBrush(event.target.value);
+                          <button
+                            onClick={() => {
+                              handleClick(false);
                             }}
-                          />
-
-                          <br />
-                          <label>Brush Thickness</label>
-                          <div className='thickness'></div>
-                          <input
-                            min='2'
-                            max='50'
-                            type='range'
-                            onChange={(event) => {
-                              console.log(event.target.value);
-                              setThick(event.target.value);
-                            }}
+                          >
+                            <i class='fa fa-window-close icon'></i>
+                          </button>
+                        </div>
+                      </div>
+                      <div className='hand-writing-area margin-btm'>
+                        <div className='canvas-draw-kanji'>
+                          <CanvasDraw
+                            className='canvas-box'
+                            ref={canvasRef}
+                            brushColor={canvas}
+                            brushRadius={brush}
+                            hideGrid={true}
                           />
                         </div>
                       </div>
                     </div>
                   </div>
-              )}
+                )}
               </div>
             </div>
           </div>
