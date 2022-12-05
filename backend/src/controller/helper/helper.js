@@ -1,4 +1,4 @@
-import * as tf from '@tensorflow/tfjs'
+const tf = require('@tensorflow/tfjs')
 const IMG_SIZE = 48
 async function loadModel() {
     console.log("model loading..");

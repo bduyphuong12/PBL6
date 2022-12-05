@@ -18,7 +18,7 @@ app.use(
 
 //cac router
 require("./src/routers/user.router")(app);
-
+// require("./src/routers/kanji.router")(app);
 
 app.listen(5000, function () {
   console.log("Server listening on http://localhost:5000");

@@ -1,4 +1,5 @@
 module.exports = function (router) {
-    const userController = require("../controller/kanji.controller");
-    router.get("/user/detail/:id", userController.UserDetail);
+    const KanjiController = require("../controller/kanji.controller");
+    router.post("/kanji", KanjiController.predict);
+    router.get("/test", KanjiController.test);
   };

@@ -8,5 +8,7 @@ module.exports = function (router) {
   router.get("/user/detail/:id", userController.UserDetail);
   router.put("/user/updatepassword", userController.UpdatePassWord);
   router.delete("/user/delete", userController.DeleteUser);
-
+  const KanjiController = require("../controller/kanji.controller");
+  // router.post("/kanji", KanjiController.predict);
+  router.get("/test1", KanjiController.test1);
 };
