@@ -19,7 +19,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
-        <Route path='/detail' element={<Detail />} />
+        <Route path='/detail/:kanji' element={<Detail />} />
       </Routes>
       {/* <div className='App-footer '>
         <AboutUs />

@@ -39,7 +39,7 @@ function HomeScreen() {
                     setSearch(event.target.value);
                   }}
                 />
-                <NavLink to={'/detail/'}>
+                <NavLink to={`/detail/${search}`}>
                   <img src={searchI} alt='' className='searchI' />
                 </NavLink>
               </div>

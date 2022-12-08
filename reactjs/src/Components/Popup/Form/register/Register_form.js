@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import './register.scss';
 import { Link } from 'react-router-dom';
 import triangle from '../../../../assets/logo/obj_triangle.png';
-// import { registerUser } from "../../../../Redux/apiReques";
 import isEmpty from 'validator/lib/isEmpty';
 import isEmail from 'validator/lib/isEmail';
-import { useDispatch } from 'react-redux';
+
 const Register_form = () => {
   const [msgVal, setmsgVal] = useState('');
   const [username, setUserName] = useState('');

@@ -10,13 +10,18 @@
   margin-left: 10px;
   width: 200px;
 }
+
+.panel-warning-example{
+  width: 400px;
+
+}
 .panel-info{
   width: 600px;
   margin-left: -120px;
 }
 .panel-warning{
-  width: 300px;
-  margin-left: 150px;
+  margin-left: 100px;
+  width: 450px;
 }
 
 .panel-heading{
@@ -136,4 +141,16 @@
   border-top: 0.5px solid #ebebeb;
   border-bottom: 0.5px solid #ebebeb;
  
+}
+
+.row p{
+  text-align: center;
+}
+
+.ant-image{
+  background-color: yellow;
+}
+
+.ant-list .ant-list-item{
+  display: block;
 }
