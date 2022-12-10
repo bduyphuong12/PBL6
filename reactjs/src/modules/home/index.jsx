@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './index.css';
 import { NavLink } from 'react-router-dom';
 import SearchComponent from '../../Components/Search/Search.component';
@@ -8,30 +8,34 @@ import logo2 from '../../assets/logo/logo2.png';
 import pencil from '../../assets/logo/pencil.png';
 import searchI from '../../assets/logo/search.png';
 import triangle from '../../assets/logo/obj_triangle.png';
+import axios from 'axios';
 
 function HomeScreen() {
   const canvasRef = useRef(null);
   const canvas = '#000000';
   const brush = 4;
-
+  let dataFinal;
   const [isShown, setIsShown] = useState(false);
-  const [draw, setDraw] = useState()
-
+  const [draw, setDraw] = useState();
+  const [result, setResult] = useState([]);
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
   const [search, setSearch] = useState('');
-const onChangeDraw = () => {
-  if (canvasRef.current) {
-    console.log('data',canvasRef.current.canvasContainer.children[1].toDataURL() )
-  }
-}
- 
+  const onChangeDraw = async () => {
+    if (canvasRef.current) {
+      let subData = canvasRef.current.canvasContainer.children[1].toDataURL();
+      dataFinal = subData.substring(22);
+      console.log(dataFinal);
+      const res = await axios.post(`http://127.0.0.1:5000/model`, { data: dataFinal });
+      setResult(res);
+    }
+  };
 
   return (
     <div>
       <div className='jumbotron d-flex align-items-center'>
-      <img src={draw} alt=""/>
+        <img src={draw} alt='' />
         <div className='container text-center'>
           <img src={logo2} alt='logo' className='logo2' />
           <div className='input-method'>
@@ -87,7 +91,7 @@ const onChangeDraw = () => {
                         <div className='canvas-draw-kanji'>
                           <CanvasDraw
                             ref={canvasRef}
-                            onChange={ onChangeDraw}
+                            onChange={onChangeDraw}
                             brushColor={canvas}
                             brushRadius={brush}
                             hideGrid={true}
