@@ -11,6 +11,7 @@ import os
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 UPLOAD_FOLDER = 'upload/'
+PATH = 'upload/requestImg.jpg'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 model = keras.models.load_model('kanji.h5')
 
@@ -24,13 +25,16 @@ def predict():
     if request.method == "POST":
         # print("request data", np.asarray(request.files))
         try:
-            data = request.files['data']
-            filename = secure_filename(data.filename)
-            data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            path = UPLOAD_FOLDER+filename
-
-            img = pr.readAndProcessImg(path)
+            data = request.form['data']
+            # filename = secure_filename(data.filename)
+            # data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # path = UPLOAD_FOLDER+filename
+            # img = pr.readAndProcessImg(path)
             # print(img)
+            # print(type(data))
+            pr.covertBase64ToImg(data)
+            img = pr.readAndProcessImg(PATH)
+            print(np.asarray(img))
             result = model.predict(img.reshape(1,48,48,1))
             arr_predict = pr.sortPredict(result)
 

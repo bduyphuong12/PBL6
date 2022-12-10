@@ -3,6 +3,7 @@ import skimage.transform
 import Labels
 from werkzeug.utils import secure_filename
 import os
+import base64
 def readAndProcessImg(path):
     img = cv.imread(path,0)
     img = skimage.transform.resize(img, (48, 48))
@@ -21,3 +22,8 @@ def sortPredict(result):
 def remove_file(path):
 	for f in os.listdir(path):
 		os.remove(os.path.join(path,f))
+def covertBase64ToImg(strImg):
+    imgdata = base64.b64decode(strImg)
+    filename = 'upload/requestImg.jpg'  # I assume you have a way of picking unique filenames
+    with open(filename, 'wb') as f:
+        f.write(imgdata)
