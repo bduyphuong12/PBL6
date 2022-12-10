@@ -20,6 +20,12 @@ export default function SearchComponent({kanji}) {
     setIsShown((current) => !current);
   };
 
+  const onChangeDraw = () => {
+    const draw  = canvasRef.current;
+    const data = draw.getSaveData();
+    console.log('data', data);
+  }
+
   return (
     <WrapperSearch>
         <div className='method-input-button' onClick={handleClick}>
@@ -63,7 +69,7 @@ export default function SearchComponent({kanji}) {
                 </div>
                 <div className='area-hand-writing'>
                   <div className='canvas-kanji-draw'>
-                    <CanvasDraw ref={canvasRef} brushColor={canvas} brushRadius={brush} hideGrid={true} />
+                    <CanvasDraw ref={canvasRef} brushColor={canvas} onChange={onChangeDraw} brushRadius={brush} hideGrid={true} />
                   </div>
                 </div>
               </div>

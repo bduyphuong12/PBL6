@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './index.css';
-import {  NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SearchComponent from '../../Components/Search/Search.component';
 import '../../assets/bootstrap/bootstrap.min.css';
 import CanvasDraw from 'react-canvas-draw';
@@ -8,21 +8,30 @@ import logo2 from '../../assets/logo/logo2.png';
 import pencil from '../../assets/logo/pencil.png';
 import searchI from '../../assets/logo/search.png';
 import triangle from '../../assets/logo/obj_triangle.png';
+
 function HomeScreen() {
   const canvasRef = useRef(null);
-  const canvas = '#FCA5A5';
+  const canvas = '#000000';
   const brush = 4;
 
   const [isShown, setIsShown] = useState(false);
+  const [draw, setDraw] = useState()
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
   const [search, setSearch] = useState('');
+const onChangeDraw = () => {
+  if (canvasRef.current) {
+    console.log('data',canvasRef.current.canvasContainer.children[1].toDataURL() )
+  }
+}
+ 
 
   return (
     <div>
       <div className='jumbotron d-flex align-items-center'>
+      <img src={draw} alt=""/>
         <div className='container text-center'>
           <img src={logo2} alt='logo' className='logo2' />
           <div className='input-method'>
@@ -77,8 +86,8 @@ function HomeScreen() {
                       <div className='hand-writing-area margin-btm'>
                         <div className='canvas-draw-kanji'>
                           <CanvasDraw
-                            className='canvas-box'
                             ref={canvasRef}
+                            onChange={ onChangeDraw}
                             brushColor={canvas}
                             brushRadius={brush}
                             hideGrid={true}
