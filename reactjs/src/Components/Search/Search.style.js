@@ -17,7 +17,7 @@ export const WrapperSearch = styled.div`
     border: 1px solid #dfe1e5;
     cursor: pointer;
     position: absolute;
-    left: 335px;
+    left: 330px;
   }
   .icon-input:hover {
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
@@ -63,7 +63,7 @@ export const WrapperSearch = styled.div`
     box-shadow: 0 0 10px 0 rgb(0 0 0 / 8%);
     position: absolute;
     z-index: 1;
-    left: 409px;
+    left: 370px;
     top: 41px;
   }
 

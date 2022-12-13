@@ -30,6 +30,13 @@
   box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
   border: 1px solid #dadce0;
 }
+#outputResult{
+  color: black;
+  padding: 2px 5px;
+  display: inline;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
 .search-wrapper {
   padding: 9px;
   width: 37%;
