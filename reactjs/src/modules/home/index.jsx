@@ -12,7 +12,7 @@ import axios from 'axios';
 
 function HomeScreen() {
   const canvasRef = useRef(null);
-  const canvas = '#000000';
+  const canvas = '#ffff66';
   const brush = 4;
   let dataFinal;
   const [isShown, setIsShown] = useState(false);
@@ -27,8 +27,24 @@ function HomeScreen() {
       let subData = canvasRef.current.canvasContainer.children[1].toDataURL();
       dataFinal = subData.substring(22);
       console.log(dataFinal);
-      const res = await axios.post(`http://127.0.0.1:5000/model`, { data: dataFinal });
+
+      const form = new FormData();
+      form.append('data',dataFinal)
+      const res = await axios.post('//localhost:5000/model', form, {
+       headers: {
+      'Content-Type': 'multipart/form-data'
+       }
+      }).then(function (response) {
+        //handle success
+        console.log(response);
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+      //const res = await axios.post(`http://localhost:5000/model`, { "data": dataFinal });
       setResult(res);
+      console.log(res);
     }
   };
 

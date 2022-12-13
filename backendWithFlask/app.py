@@ -6,9 +6,12 @@ import Labels
 import modelProcess as pr
 from werkzeug.utils import secure_filename
 import os
+import json
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 app.config['JSON_AS_ASCII'] = False
 UPLOAD_FOLDER = 'upload/'
 PATH = 'upload/requestImg.jpg'
@@ -25,7 +28,9 @@ def predict():
     if request.method == "POST":
         # print("request data", np.asarray(request.files))
         try:
-            data = request.form['data']
+            # print(request)
+            data = request.form.get("data")
+            # print(data)
             # filename = secure_filename(data.filename)
             # data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # path = UPLOAD_FOLDER+filename
@@ -34,11 +39,11 @@ def predict():
             # print(type(data))
             pr.covertBase64ToImg(data)
             img = pr.readAndProcessImg(PATH)
-            print(np.asarray(img))
+            # print(np.asarray(img))
             result = model.predict(img.reshape(1,48,48,1))
             arr_predict = pr.sortPredict(result)
 
-            pr.remove_file('./upload')
+            # pr.remove_file('./upload')
             return jsonify({'1':(arr_predict[-1][1]),
                             '2':(arr_predict[-2][1]),
                             '3':(arr_predict[-3][1]),
