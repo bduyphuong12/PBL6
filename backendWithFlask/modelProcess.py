@@ -5,12 +5,13 @@ from werkzeug.utils import secure_filename
 import os
 import base64
 def readAndProcessImg(path):
-    img = cv.imread(path,0)
+    img = cv.imread(path)
+    img = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     img = skimage.transform.resize(img, (48, 48))
-    for i in range(48):
-        for j in range(48):
-            if img[i,j] >= 0.9:
-                img[i,j] = 0
+    # for i in range(48):
+    #     for j in range(48):
+    #         if img[i,j] >= 0.9:
+    #             img[i,j] = 0
     return img
 def sortPredict(result):
     arr_predict = []

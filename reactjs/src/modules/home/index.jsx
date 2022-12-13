@@ -12,7 +12,7 @@ import axios from 'axios';
 
 function HomeScreen() {
   const canvasRef = useRef(null);
-  const canvas = '#ffff66';
+  const canvas = '#FFFF00';
   const brush = 4;
   let dataFinal;
   const [isShown, setIsShown] = useState(false);
