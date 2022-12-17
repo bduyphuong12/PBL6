@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { WrapperSearch } from './Search.style';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import CanvasDraw from 'react-canvas-draw';
 import pencil from '../../assets/logo/pencil.png';
 import searchI from '../../assets/logo/search.png';
@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function SearchComponent({ kanji }) {
   const [search, setSearch] = useState('');
   const canvasRef = useRef(null);
-  const canvas = '#FCA5A5';
+  const canvas = '#ffff66';
   const brush = 4;
   let dataFinal;
   const [result, setResult] = useState([]);
@@ -44,7 +44,12 @@ export default function SearchComponent({ kanji }) {
     }
     console.log(result);
   };
-
+  let navigate = useNavigate();
+  const keyPressEnter = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/detail/${search}`);
+    }
+  };
   return (
     <WrapperSearch>
       <div className='method-input-button' onClick={handleClick}>
@@ -54,13 +59,14 @@ export default function SearchComponent({ kanji }) {
         <input
           type='text'
           onChange={onChange}
+          onKeyPress={keyPressEnter}
           placeholder='Tra hán tự: hán, 漢, かん'
-          defaultValue={kanji}
+          value={kanji}
           id='inputWord'
         />
-        <Link to={`/detail/${search}`}>
+        <NavLink to={`/detail/${search}`}>
           <img src={searchI} alt='' className='searchIcon' />
-        </Link>
+        </NavLink>
       </div>
       <div className='writing-draw'>
         {isShown && (
