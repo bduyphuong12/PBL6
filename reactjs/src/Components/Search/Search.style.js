@@ -35,10 +35,13 @@ export const WrapperSearch = styled.div`
     z-index: 10;
     background: #fff;
   }
+  .search-button{
+
+  }
   .wrapper-search input {
     font-size: 1.1rem;
     line-height: 1.1rem;
-    width: 290px;
+    width: 380px;
     float: left;
     background-color: transparent;
     border: none;

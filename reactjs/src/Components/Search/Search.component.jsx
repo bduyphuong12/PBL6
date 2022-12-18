@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { WrapperSearch } from './Search.style';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 import CanvasDraw from 'react-canvas-draw';
 import pencil from '../../assets/logo/pencil.png';
 import searchI from '../../assets/logo/search.png';
@@ -13,9 +13,9 @@ export default function SearchComponent({ kanji }) {
   let dataFinal;
   const [result, setResult] = useState([]);
   const [isShown, setIsShown] = useState(false);
-  const onChange = (e) => {
-    setSearch(e.target.value);
-  };
+  // const getUrl = window.location.href.split('/');
+  // var wordKanji = getUrl[getUrl.length - 1];
+  // console.log(wordKanji);
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
@@ -42,11 +42,16 @@ export default function SearchComponent({ kanji }) {
           console.log(response);
         });
     }
-    console.log(result);
   };
   let navigate = useNavigate();
   const keyPressEnter = (e) => {
-    if (e.key === 'Enter') {
+    var val = document.getElementById('inputWord').value;
+    if ((e.key === 'Enter') & (val !== '')) {
+      navigate(`/detail/${search}`);
+    }
+  };
+  const onClickSearch = () => {
+    if (kanji !== '') {
       navigate(`/detail/${search}`);
     }
   };
@@ -58,15 +63,17 @@ export default function SearchComponent({ kanji }) {
       <div className='wrapper-search'>
         <input
           type='text'
-          onChange={onChange}
+          onChange={(event) => {
+            setSearch(event.target.value);
+          }}
           onKeyPress={keyPressEnter}
           placeholder='Tra hán tự: hán, 漢, かん'
-          value={kanji}
+          defaultValue={kanji}
           id='inputWord'
         />
-        <NavLink to={`/detail/${search}`}>
+        <button onClick={onClickSearch} className='search-button'>
           <img src={searchI} alt='' className='searchIcon' />
-        </NavLink>
+        </button>
       </div>
       <div className='writing-draw'>
         {isShown && (

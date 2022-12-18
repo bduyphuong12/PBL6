@@ -18,7 +18,7 @@ function Detail() {
   useEffect(() => {
     fetchData();
     fetchDataMazzi();
-  }, []);
+  }, [kanji]);
 
   const fetchData = async () => {
     const options = {

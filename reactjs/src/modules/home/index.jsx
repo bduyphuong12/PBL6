@@ -48,7 +48,14 @@ function HomeScreen() {
   };
   let navigate = useNavigate();
   const keyPressEnter = (e) => {
-    if (e.key === 'Enter') {
+    var val = document.getElementById('inputWord').value;
+    if ((e.key === 'Enter') & (val !== '')) {
+      navigate(`/detail/${search}`);
+    }
+  };
+  const onClickSearch = () => {
+    var val = document.getElementById('inputWord').value;
+    if (val !== '') {
       navigate(`/detail/${search}`);
     }
   };
@@ -74,9 +81,9 @@ function HomeScreen() {
                     setSearch(event.target.value);
                   }}
                 />
-                <NavLink to={`/detail/${search}`}>
+                <button onClick={onClickSearch} className='search-button'>
                   <img src={searchI} alt='' className='searchI' />
-                </NavLink>
+                </button>
               </div>
               <div className='draw-writing'>
                 {isShown && (
