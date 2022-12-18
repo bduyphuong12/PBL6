@@ -13,7 +13,6 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-
       <Routes >
         <Route exact path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />

@@ -15,7 +15,6 @@ export default function SearchComponent({ kanji }) {
   const [isShown, setIsShown] = useState(false);
   // const getUrl = window.location.href.split('/');
   // var wordKanji = getUrl[getUrl.length - 1];
-  // console.log(wordKanji);
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
@@ -51,13 +50,14 @@ export default function SearchComponent({ kanji }) {
     }
   };
   const onClickSearch = () => {
-    if (kanji !== '') {
+    var val = document.getElementById('inputWord').value;
+    if (val !== '') {
       navigate(`/detail/${search}`);
     }
   };
   return (
     <WrapperSearch>
-      <div className='method-input-button' onClick={handleClick}>
+      <div className='method-input-button'>
         <img src={pencil} alt='' className='icon-input' />
       </div>
       <div className='wrapper-search'>
