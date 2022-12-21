@@ -39,20 +39,37 @@ def predict():
             # print(type(data))
             pr.covertBase64ToImg(data)
             img = pr.readAndProcessImg(PATH)
+            img2 = pr.readAndNOTProcessImg(PATH)
             # print(np.asarray(img))
             result = model.predict(img.reshape(1,48,48,1))
+            result2 = model.predict(img2.reshape(1,48,48,1))
             arr_predict = pr.sortPredict(result)
-
+            arr_predict2 = pr.sortPredict(result2)
+            arr_predict = arr_predict2 + arr_predict
+            js = pr.gettop10(arr_predict)
+            print(arr_predict)
+            print(js)
             # pr.remove_file('./upload')
-            return jsonify({'1':(arr_predict[-1][1]),
-                            '2':(arr_predict[-2][1]),
-                            '3':(arr_predict[-3][1]),
-                            '4':(arr_predict[-4][1]),
-                            '5':(arr_predict[-5][1]),
-                            '6':(arr_predict[-6][1]),
-                            '7':(arr_predict[-7][1]),
-                            '8':(arr_predict[-8][1]),
-                            '9':(arr_predict[-9][1])
+            # return jsonify({'1':(arr_predict[-1][1]),
+            #                 '2':(arr_predict[-2][1]),
+            #                 '3':(arr_predict[-3][1]),
+            #                 '4':(arr_predict[-4][1]),
+            #                 '5':(arr_predict[-5][1]),
+            #                 '6':(arr_predict[-6][1]),
+            #                 '7':(arr_predict[-7][1]),
+            #                 '8':(arr_predict[-8][1]),
+            #                 '9':(arr_predict[-9][1])
+            # })
+            print(js)
+            return jsonify({'1':(js[0]),
+                            '2':(js[1]),
+                            '3':(js[2]),
+                            '4':(js[3]),
+                            '5':(js[4]),
+                            '6':(js[5]),
+                            '7':(js[6]),
+                            '8':(js[7]),
+                            '9':(js[8])
             })
         except Exception as e:
             return jsonify(e)

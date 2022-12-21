@@ -26,26 +26,25 @@ function HomeScreen() {
     if (canvasRef.current) {
       let subData = canvasRef.current.canvasContainer.children[1].toDataURL();
       dataFinal = subData.substring(22);
-      console.log(dataFinal);
-
       const form = new FormData();
-      form.append('data',dataFinal)
-      const res = await axios.post('//localhost:5000/model', form, {
-       headers: {
-      'Content-Type': 'multipart/form-data'
-       }
-      }).then(function (response) {
-        //handle success
-        console.log(response);
-      })
-      .catch(function (response) {
-        //handle error
-        console.log(response);
-      });
-      //const res = await axios.post(`http://localhost:5000/model`, { "data": dataFinal });
-      setResult(res);
-      console.log(res);
+      form.append('data', dataFinal);
+      const res = await axios
+        .post('http://127.0.0.1:5000/model', form, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((response) => {
+          //handle success
+          console.log(response);
+          setResult(Object.values(response.data));
+        })
+        .catch((response) => {
+          //handle error
+          console.log(response);
+        });
     }
+    console.log(result);
   };
 
   return (
@@ -77,7 +76,14 @@ function HomeScreen() {
                 {isShown && (
                   <div className='hand-writing-area-wrapper'>
                     <div className='draw-kanji-top-bar'>
-                      <div className='draw-kanji-result'>result</div>
+                      <div className='draw-kanji-result'>
+                        {result.map((item, i) => (
+                          <p id='outputResult' onClick={() => setSearch(item)} key={i}>
+                            {item}
+                          </p>
+                        ))}
+                      </div>
+
                       <div className='writing-button-area'>
                         <div>
                           <button

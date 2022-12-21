@@ -7,21 +7,19 @@
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
 }
 .panel-primary{
-  margin-left: 10px;
   width: 200px;
 }
 
 .panel-warning-example{
   width: 400px;
-
 }
 .panel-info{
   width: 600px;
-  margin-left: -120px;
+  margin-left: -150px;
 }
 .panel-warning{
   margin-left: 100px;
-  width: 450px;
+  width: 370px;
 }
 
 .panel-heading{
@@ -58,7 +56,7 @@
   border: 1px solid #dfe1e5;
   cursor: pointer;
   position: absolute;
-  left: 335px;
+  left: 330px;
 }
 .icon-input:hover {
   box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
