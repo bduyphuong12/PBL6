@@ -30,6 +30,11 @@
   box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
   border: 1px solid #dadce0;
 }
+.search-button{
+  border: none;
+  background: white;
+
+}
 #outputResult{
   color: black;
   padding: 2px 5px;

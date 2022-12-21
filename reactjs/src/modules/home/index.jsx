@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './index.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import SearchComponent from '../../Components/Search/Search.component';
 import '../../assets/bootstrap/bootstrap.min.css';
 import CanvasDraw from 'react-canvas-draw';
@@ -46,7 +46,19 @@ function HomeScreen() {
     }
     console.log(result);
   };
-
+  let navigate = useNavigate();
+  const keyPressEnter = (e) => {
+    var val = document.getElementById('inputWord').value;
+    if ((e.key === 'Enter') & (val !== '')) {
+      navigate(`/detail/${search}`);
+    }
+  };
+  const onClickSearch = () => {
+    var val = document.getElementById('inputWord').value;
+    if (val !== '') {
+      navigate(`/detail/${search}`);
+    }
+  };
   return (
     <div>
       <div className='jumbotron d-flex align-items-center'>
@@ -64,13 +76,14 @@ function HomeScreen() {
                   placeholder='Tra hán tự: hán, 漢, かん'
                   id='inputWord'
                   value={search}
+                  onKeyPress={keyPressEnter}
                   onChange={(event) => {
                     setSearch(event.target.value);
                   }}
                 />
-                <NavLink to={`/detail/${search}`}>
+                <button onClick={onClickSearch} className='search-button'>
                   <img src={searchI} alt='' className='searchI' />
-                </NavLink>
+                </button>
               </div>
               <div className='draw-writing'>
                 {isShown && (

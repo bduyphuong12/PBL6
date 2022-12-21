@@ -5,7 +5,7 @@ import AudioPlayer from 'react-h5-audio-player';
 import ReactPlayer from 'react-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { Image, List, Row, Col, Table, Typography } from 'antd';
-import {  useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import SearchComponent from '../../Components/Search/Search.component';
 
@@ -14,12 +14,11 @@ function Detail() {
   const [data, setData] = useState({});
   const [dataMazzi, setDataMazzi] = useState({});
   const kanji = useParams().kanji;
-  
 
   useEffect(() => {
     fetchData();
     fetchDataMazzi();
-  }, []);
+  }, [kanji]);
 
   const fetchData = async () => {
     const options = {
@@ -83,7 +82,7 @@ function Detail() {
     <div>
       <div className='jumbotron d-flex '>
         <div id='container-fluid'>
-        <SearchComponent kanji={kanji}/>
+          <SearchComponent kanji={kanji} />
           <div class='row come-in'>
             <div class='col-lg-4 col-md-6 col-sm-12 col-xs-12'>
               <div class='panel panel-primary'>
@@ -168,7 +167,7 @@ function Detail() {
                         </Row>
                         <Row>
                           <Col span={24}>
-                            <AudioPlayer src={item.audio.mp3} onPlay={(e) => console.log('onPlay')} />
+                            <AudioPlayer src={item.audio.mp3} />
                           </Col>
                         </Row>
                       </List.Item>

@@ -13,14 +13,13 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-
-      <Routes>
+      <Routes >
         <Route exact path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:kanji' element={<Detail />} />
-      </Routes>
+        </Routes>
       {/* <div className='App-footer '>
         <AboutUs />
       </div> */}
