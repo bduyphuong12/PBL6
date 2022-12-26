@@ -7,14 +7,14 @@ import 'react-h5-audio-player/lib/styles.css';
 import { Image, List, Row, Col, Table, Typography } from 'antd';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import SearchComponent from '../../Components/Search/Search.component';
+import SearchComponent from '../../components/Search/Search.component';
 
 function Detail() {
   const { Paragraph } = Typography;
   const [data, setData] = useState({});
   const [dataMazzi, setDataMazzi] = useState({});
   const kanji = useParams().kanji;
-
+  console.log('kaji', kanji);
   useEffect(() => {
     fetchData();
     fetchDataMazzi();
@@ -167,7 +167,7 @@ function Detail() {
                         </Row>
                         <Row>
                           <Col span={24}>
-                            <AudioPlayer src={item.audio.mp3} autoPlay />
+                            <AudioPlayer src={item.audio.mp3} />
                           </Col>
                         </Row>
                       </List.Item>

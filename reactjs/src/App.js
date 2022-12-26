@@ -1,25 +1,22 @@
-import { BrowserRouter, Route, Routes, Switch } from 'react-router-dom';
-import AppRoutes from './routes';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import NavBar from './Components/PageLayout/Header/navbar';
-import AboutUs from './Components/PageLayout/Footer/about-us';
-import Login from './Components/Popup/Form/login/Login_form';
-import LoginIO from './Components/Popup/LoginIO/loginio';
-import Register from './Components/Popup/Form/register/Register_form';
-import HomePage from './modules/home/index';
-import About from './modules/about/about.jsx'
-import Detail from './modules/detail/detail';
+import NavBar from './components/PageLayout/Header/navbar.jsx';
+import Login from './components/Popup/Form/login/Login_form';
+import Register from './components/Popup/Form/register/Register_form';
+import HomePage from './modules/home';
+import About from './modules/about/about.jsx';
+import Detail from './modules/detail/detail.jsx';
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Routes >
+      <Routes>
         <Route exact path='/' element={<HomePage />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/about' element={<About />} />
         <Route path='/detail/:kanji' element={<Detail />} />
-        </Routes>
+      </Routes>
       {/* <div className='App-footer '>
         <AboutUs />
       </div> */}
