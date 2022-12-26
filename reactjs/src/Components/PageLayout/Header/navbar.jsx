@@ -24,16 +24,6 @@ function NavBar() {
                 About
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to={'/blog'}>
-                Blog
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to={'/contact'}>
-                Contact
-              </Link>
-            </li>
 
             <li className='nav-item only-desktop'>
               <Link className='nav-link' id='side-nav-open' to={'/login'}>

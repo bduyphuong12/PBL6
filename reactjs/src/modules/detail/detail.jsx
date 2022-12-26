@@ -167,7 +167,7 @@ function Detail() {
                         </Row>
                         <Row>
                           <Col span={24}>
-                            <AudioPlayer src={item.audio.mp3} />
+                            <AudioPlayer src={item.audio.mp3} autoPlay />
                           </Col>
                         </Row>
                       </List.Item>

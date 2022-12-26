@@ -6,7 +6,7 @@ import pencil from '../../assets/logo/pencil.png';
 import searchI from '../../assets/logo/search.png';
 import axios from 'axios';
 export default function SearchComponent({ kanji }) {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState(kanji);
   const canvasRef = useRef(null);
   const canvas = '#ffff66';
   const brush = 4;
@@ -44,8 +44,7 @@ export default function SearchComponent({ kanji }) {
   };
   let navigate = useNavigate();
   const keyPressEnter = (e) => {
-    var val = document.getElementById('inputWord').value;
-    if ((e.key === 'Enter') & (val !== '')) {
+    if ((e.key === 'Enter') & (search !== '')) {
       navigate(`/detail/${search}`);
     }
   };
@@ -57,7 +56,7 @@ export default function SearchComponent({ kanji }) {
   };
   return (
     <WrapperSearch>
-      <div className='method-input-button'>
+      <div className='method-input-button' onClick={handleClick}>
         <img src={pencil} alt='' className='icon-input' />
       </div>
       <div className='wrapper-search'>
@@ -68,7 +67,7 @@ export default function SearchComponent({ kanji }) {
           }}
           onKeyPress={keyPressEnter}
           placeholder='Tra hán tự: hán, 漢, かん'
-          defaultValue={kanji}
+          value={search}
           id='inputWord'
         />
         <button onClick={onClickSearch} className='search-button'>
