@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './index.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import SearchComponent from '../../Components/Search/Search.component';
+import SearchComponent from '../../components/Search/Search.component';
 import '../../assets/bootstrap/bootstrap.min.css';
 import CanvasDraw from 'react-canvas-draw';
 import logo2 from '../../assets/logo/logo2.png';
