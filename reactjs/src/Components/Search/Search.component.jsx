@@ -26,7 +26,7 @@ export default function SearchComponent({ kanji }) {
       const form = new FormData();
       form.append('data', dataFinal);
       const res = await axios
-        .post('http://127.0.0.1:5000/model', form, {
+        .post('http://103.170.122.206/model', form, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
